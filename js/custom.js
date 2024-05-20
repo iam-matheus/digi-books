@@ -33,7 +33,7 @@
 
       var formdata = new FormData();
       formdata.append("type", "Vertical Strip");
-      formdata.append("tags", "books,book club,reading,best read");
+      formdata.append("tags", "books,book club,reading,best read,book,clarity");
 
       var ajax = new XMLHttpRequest();
       ajax.addEventListener("load", completeHandler, false);
