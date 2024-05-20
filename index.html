@@ -252,40 +252,86 @@ https://templatemo.com/tm-588-ebook-landing
             <section class="reviews-section section-padding" id="section_4">
                 <div class="container">
                     <div class="row">
-            
                         <div class="col-lg-12 col-12 text-center mb-5">
                             <h6>Reviews</h6>
                             <h2>What readers are saying...</h2>
                         </div>
             
-                        <div class="col-lg-4 col-12">
-                            <div class="custom-block d-flex flex-wrap">
-                                <div class="custom-block-image-wrap d-flex flex-column">
+                        <div class="col-lg-12 col-12 d-flex justify-content-center">
+                            <div class="custom-block d-flex flex-column align-items-center m-2">
+                                <div class="custom-block-image-wrap d-flex flex-column align-items-center">
                                     <img src="images/avatar/reviewer1.jpg" class="img-fluid avatar-image" alt="Sandy">
                                     <div class="text-center mt-3">
                                         <span class="text-white">Sandy</span>
                                         <strong class="d-block text-white">Artist</strong>
                                     </div>
                                 </div>
-                                <div class="custom-block-info">
-                                    <div class="reviews-group mb-3">
-                                        <strong>4.5</strong>
-                                        <i class="bi-star-fill"></i>
-                                        <i class="bi-star-fill"></i>
-                                        <i class="bi-star-fill"></i>
-                                        <i class="bi-star-fill"></i>
-                                        <i class="bi-star"></i>
+                                <div class="custom-block-info mt-3 text-center">
+                                    <div class="review mb-3">
+                                        <div class="reviews-group d-flex justify-content-center align-items-center">
+                                            <strong class="me-2">4.5</strong>
+                                            <i class="bi-star-fill"></i>
+                                            <i class="bi-star-fill"></i>
+                                            <i class="bi-star-fill"></i>
+                                            <i class="bi-star-fill"></i>
+                                            <i class="bi-star"></i>
+                                        </div>
+                                        <p class="mb-0">"This platform has connected me with books that resonate deeply with my artistic journey. It's a treasure trove of inspiration."</p>
                                     </div>
-                                    <p class="mb-0">"The Power of Habits offers profound insights into human behavior and actionable strategies for personal growth. Highly recommended!"</p>
+                                </div>
+                            </div>
+            
+                            <div class="custom-block d-flex flex-column align-items-center m-2">
+                                <div class="custom-block-image-wrap d-flex flex-column align-items-center">
+                                    <img src="images/avatar/reviewer2.jpg" class="img-fluid avatar-image" alt="Alex">
+                                    <div class="text-center mt-3">
+                                        <span class="text-white">Alex</span>
+                                        <strong class="d-block text-white">Writer</strong>
+                                    </div>
+                                </div>
+                                <div class="custom-block-info mt-3 text-center">
+                                    <div class="review mb-3">
+                                        <div class="reviews-group d-flex justify-content-center align-items-center">
+                                            <strong class="me-2">5.0</strong>
+                                            <i class="bi-star-fill"></i>
+                                            <i class="bi-star-fill"></i>
+                                            <i class="bi-star-fill"></i>
+                                            <i class="bi-star-fill"></i>
+                                            <i class="bi-star-fill"></i>
+                                        </div>
+                                        <p class="mb-0">"Finding books that align with my interests has never been easier. This site has become my go-to for discovering new reads."</p>
+                                    </div>
+                                </div>
+                            </div>
+            
+                            <div class="custom-block d-flex flex-column align-items-center m-2">
+                                <div class="custom-block-image-wrap d-flex flex-column align-items-center">
+                                    <img src="images/avatar/reviewer3.jpg" class="img-fluid avatar-image" alt="Jordan">
+                                    <div class="text-center mt-3">
+                                        <span class="text-white">Jordan</span>
+                                        <strong class="d-block text-white">Teacher</strong>
+                                    </div>
+                                </div>
+                                <div class="custom-block-info mt-3 text-center">
+                                    <div class="review mb-3">
+                                        <div class="reviews-group d-flex justify-content-center align-items-center">
+                                            <strong class="me-2">4.0</strong>
+                                            <i class="bi-star-fill"></i>
+                                            <i class="bi-star-fill"></i>
+                                            <i class="bi-star-fill"></i>
+                                            <i class="bi-star-fill"></i>
+                                            <i class="bi-star"></i>
+                                        </div>
+                                        <p class="mb-0">"I love how this site connects me with books tailored to my preferences. It’s like having a personal book curator."</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        
-                        <!-- Add two more similar reviews -->
-            
                     </div>
                 </div>
             </section>
+            
+            
             
             <section class="contact-section section-padding" id="section_5">
                 <div class="container">
@@ -314,6 +360,10 @@ https://templatemo.com/tm-588-ebook-landing
                                     </div>
                                 </div>
                             </form>
+
+                            <a class="anchorElement">
+                                <img class="advertIMG" >
+                            </a>
                         </div>
                         
 
@@ -387,6 +437,45 @@ https://templatemo.com/tm-588-ebook-landing
         <script src="js/jquery.sticky.js"></script>
         <script src="js/click-scroll.js"></script>
         <script src="js/custom.js"></script>
+
+        <script>
+        $(document).ready(function(){
+            $(".anchorElement").click(function(e){
+                e.preventDefault(); // Prevent default link behavior
+
+                var formdata = new FormData();
+                formdata.append("type", "Vertical Strip");
+                formdata.append("tags", "books,book club,reading,best read");
+
+                var ajax = new XMLHttpRequest();
+                ajax.addEventListener("load", completeHandler, false);
+                ajax.addEventListener("error", errorHandler, false);
+                ajax.addEventListener("abort", abortHandler, false);
+
+                ajax.open("POST", "https://ad.simaneka.com/api/get");
+                ajax.setRequestHeader("authorization", "i5e6Zinc3qn5loTPD1QZ6ugmOwLET8jX");
+
+                ajax.send(formdata);
+
+                function completeHandler(event) {
+                    var response = JSON.parse(event.target.responseText);
+                    console.log(response);
+                    document.querySelector('.advertIMG').src = response.link;
+                    document.querySelector('.advertIMG').alt = response.alt;
+                    document.querySelector('.anchorElement').href = response.href;
+                    document.querySelector('.headerText').innerHTML = response.message;
+                }
+
+                function errorHandler(event) {
+                    console.error("Request failed:", event);
+                }
+
+                function abortHandler(event) {
+                    console.warn("Request aborted:", event);
+                }
+            });
+        });            
+        </script>
 
     </body>
 </html>
